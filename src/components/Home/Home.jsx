@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -39,7 +40,10 @@ const Home = () => {
                      <p><FaArrowRight></FaArrowRight>{rec.number_of_recipes}N</p>
                      
                     </Card.Text>
+                 
+                    <Link to={`/allData/${id}`}>
                     <Button  variant="primary">View Recipes <FaArrowRight></FaArrowRight></Button>
+            </Link>
                   </Card.Body>
                 </Card>
               </Col>
