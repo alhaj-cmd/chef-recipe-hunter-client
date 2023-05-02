@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:'allData',
+    path:'/allData',
     element:<ChefAllData></ChefAllData>,
     children:[
       {

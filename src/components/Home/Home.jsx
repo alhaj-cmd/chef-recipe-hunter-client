@@ -41,7 +41,7 @@ const Home = () => {
                      
                     </Card.Text>
                  
-                    <Link to={`/allData/${id}`}>
+                    <Link to={`/allData/${rec.id}`}>
                     <Button  variant="primary">View Recipes <FaArrowRight></FaArrowRight></Button>
             </Link>
                   </Card.Body>

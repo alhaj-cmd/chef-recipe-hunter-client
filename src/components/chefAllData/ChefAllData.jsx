@@ -1,9 +1,14 @@
 import React from 'react';
+import Header from '../Header/Header';
+import { Outlet } from 'react-router-dom';
+
 
 const ChefAllData = () => {
+    
     return (
         <div>
-            <h2>allData</h2>
+           <Header></Header>
+           <Outlet></Outlet>
         </div>
     );
 };
