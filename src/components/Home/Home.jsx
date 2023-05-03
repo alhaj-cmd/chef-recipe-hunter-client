@@ -21,6 +21,22 @@ const Home = () => {
 
   return (
     <div>
+      {/* extra card */}
+      <div className='mt-4 '>
+        <h1 className='text-center'>Chef's Recipes</h1>
+        <div className=' d-flex'>
+        <Card>
+          <img className='' src="recipe1.avif" alt="" />
+
+        </Card>
+        <Card>
+          <img src="recipe1.avif" alt="" />
+
+        </Card>
+       
+
+        </div>
+      </div>
        <Row xs={1} md={2} lg={3} className="g-4 mt-4">
       {
         recipe.map(rec =>

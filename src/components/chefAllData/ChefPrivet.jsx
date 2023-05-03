@@ -19,7 +19,7 @@ const ChefPrivet = () => {
     return (
         <>
 
-            <Container >
+            <Container className='mt-4' >
                 <Row xs={1} md={1} lg={1} className="g-4 mb-4">
                     <Col>
                         <Card>

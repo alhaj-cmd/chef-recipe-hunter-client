@@ -3,7 +3,8 @@ import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-            <div className=" container">
+           <div className='bg-dark mt-4'>
+             <div className="text-white container">
                 <div className="row p-4">
                     <div className="col-md-3 ">
                         <p>Emphasizes fruits, vegetables, whole grains, and fat-free or low-fat milk and milk products. Includes a variety of protein foods such as seafood, lean meats and poultry, eggs, legumes (beans and peas), soy products, nuts, and seeds. Is low in added sugars, sodium, saturated fats, trans fats, and cholesterol.</p>
@@ -39,6 +40,7 @@ const Footer = () => {
                     </div>
                 </div>
 
+           </div>
              
           
             );
