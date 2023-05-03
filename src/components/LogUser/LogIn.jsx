@@ -4,8 +4,25 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Porvider/AuthPorvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/Firebase-config';
+import { FaGoogle } from 'react-icons/fa';
 
 const LogIn = () => {
+  // google signIn
+  const  auth =  getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const handleGoogleSignIn =()=>{
+    signInWithPopup(auth, provider)
+    .then(res =>{
+      const user = res.user;
+      console.log(user);
+    })
+    .catch(error =>{
+      console.log('error',error.message)
+    })
+  }
+  // email sign
   const { signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -49,7 +66,7 @@ const LogIn = () => {
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
       <Button variant="primary" type="submit">
-        LogUser
+        EmailSign
       </Button>
       <br />
       <Form.Text className="text-secondary">
@@ -62,6 +79,7 @@ const LogIn = () => {
       <Form.Text className="text-danger">
           danger
         </Form.Text>
+    <Button onClick={handleGoogleSignIn}>GoogleSing <FaGoogle></FaGoogle></Button>
     </Form>
        </Container>
     );

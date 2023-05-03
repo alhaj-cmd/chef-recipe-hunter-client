@@ -66,7 +66,6 @@ const {createUser} = useContext(AuthContext)
           success
         </Form.Text>
     </Form>
-    <img src={createUser.photo} alt="" />
        </Container>
     );
 };
