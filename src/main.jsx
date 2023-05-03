@@ -8,6 +8,11 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import Home from './components/Home/Home.jsx';
 import ChefAllData from './components/chefAllData/ChefAllData.jsx';
 import ChefPrivet from './components/chefAllData/chefPrivet.jsx';
+import AuthPorvider from './components/Porvider/AuthPorvider.jsx';
+// import LogIn from './components/LogUser/LogIn.js';
+import Register from './components/LogUser/Register.jsx';
+import LogIn from './components/LogUser/Login.jsx';
+import PrivetRoute from './components/PrivetRoute/PrivetRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,17 +24,29 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
-      }
+      },
+      {
+        path:"login",
+        element:<LogIn></LogIn>
+      },
+      {
+        path:"register",
+        element:<Register></Register>
+      },
     ]
   },
+
   {
     path:'/allData',
     element:<ChefAllData></ChefAllData>,
     children:[
       {
         path:':id',
-        element:<ChefPrivet></ChefPrivet>,
-        loader:({params})=>fetch(`http://localhost:5000/allData/${params.id}`)
+        element:<PrivetRoute><ChefPrivet></ChefPrivet></PrivetRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/allData/${params.id}`),
+        children:[
+
+        ]
       }
     ]
   }
@@ -38,6 +55,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthPorvider>
+
    <RouterProvider router={router} />
+
+    </AuthPorvider>
   </React.StrictMode>,
 )

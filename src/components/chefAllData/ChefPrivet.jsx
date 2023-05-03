@@ -66,7 +66,10 @@ const ChefPrivet = () => {
             </Toast>
             <Row xs={1} md={3} lg={3} className="g-4 p-2 h-100 mb-4">
                 {
-                    recipes.map(recipe => <div>
+                    recipes.map(recipe => <div
+                    key={recipe.id}
+                    
+                    >
 
 
                         <Card className='h-100'>

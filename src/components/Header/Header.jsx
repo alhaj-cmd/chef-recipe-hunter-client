@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import './Header.css';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../Porvider/AuthPorvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+// const {user} = useContext(AuthContext);
 
+  const {user, logOut} = useContext(AuthContext);
 
-  // const {user, logOut} = useContext(AuthContext);
-
-  //   const handleLogOut =() =>{
-  //       logOut()
-  //       .then()
-  //       .catch(error => console.log(error));
-  //   }
+    const handleLogOut =() =>{
+        logOut()
+        .then()
+        .catch(error => console.log(error));
+    }
 
   return (
    
@@ -22,16 +25,16 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="/"><Link to="/">Home</Link></Nav.Link>
               <Nav.Link href="#link">Blog</Nav.Link>
               <Nav.Link href="#link">Login</Nav.Link>
             </Nav>
-            {/* <Nav>
-           { user && <FaUserCircle style={{fontSize:"2rem"}} ></FaUserCircle>}
+            <Nav>
+            { user && <FaUserCircle style={{fontSize:"2rem"}} ></FaUserCircle>}
            
-              {user ? <Button onClick={handleLogOut} variant='secondary'>LogOut</Button> : <Link to='/login'><Button variant='secondary'>LogIn</Button></Link>}
+           {user ? <Button onClick={handleLogOut} variant='secondary'>LogOut</Button> : <Link to='/login'><Button variant='secondary'>LogIn</Button></Link>}
             
-          </Nav> */}
+          </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -43,7 +46,7 @@ const Header = () => {
               <h3>The Perfect Choice</h3>
               <h1>HEALTHY FOOD</h1>
               <p>Fresh, organic ingradregient. Carefully prepared</p>
-              <Button>BOOK A TABLE</Button>
+              <Link to='/'><Button>BOOK A TABLE</Button></Link>
 
             </div>
           </div>
