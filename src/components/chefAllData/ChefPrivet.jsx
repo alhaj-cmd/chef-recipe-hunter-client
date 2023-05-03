@@ -80,11 +80,12 @@ const ChefPrivet = () => {
                                 </Card.Text>
                                 <Card.Text>
                                     <p>Ingredients: {recipe.ingredients}</p>
-                                    <p>Rating: {recipe.rating}</p>
+                                    
 
                                 </Card.Text>
                                 <Card.Text>
                                     <p>{description.slice(0, 200)}...</p>
+                                    <p>Rating: {recipe.rating}</p>
                                 </Card.Text>
 
                                 {/* <Col md={6} className="mb-2"> */}

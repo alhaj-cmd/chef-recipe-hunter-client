@@ -11,17 +11,19 @@ const AuthPorvider = ({children}) => {
 
     // const user = null;
     const [user, setUser] = useState(null)
+    const [loading, setLoading] =  useState(true);
 
     const createUser = (email, password)=>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email,password);
     }
 
     const signIn = (email, password) =>{
-        // setLoading(true);
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     const logOut =()=>{
-        // setLoading(true);
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -30,7 +32,7 @@ const AuthPorvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, loggedUsed =>{
             console.log('logged in user inside auth state', loggedUsed)
             setUser(loggedUsed);
-            // setLoading(false);
+            setLoading(false);
         }) 
         return() =>{
             unsubscribe();
@@ -40,6 +42,7 @@ const AuthPorvider = ({children}) => {
 
     const authInfo = {
         user,
+        loading,
         createUser,
         signIn,
         logOut

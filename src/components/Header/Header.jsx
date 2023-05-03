@@ -40,7 +40,7 @@ const Header = () => {
       </Navbar>
       <div className='home '>
 
-        <Container>
+        <div className='container'>
           <div className="row mt-4 pt-4 ">
             <div className="col-sm-12 col-md-6 ">
               <h3>The Perfect Choice</h3>
@@ -50,7 +50,7 @@ const Header = () => {
 
             </div>
           </div>
-        </Container>
+        </div>
       </div>
     </div>
    

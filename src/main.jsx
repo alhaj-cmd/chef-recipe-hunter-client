@@ -7,12 +7,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import Home from './components/Home/Home.jsx';
 import ChefAllData from './components/chefAllData/ChefAllData.jsx';
-import ChefPrivet from './components/chefAllData/chefPrivet.jsx';
 import AuthPorvider from './components/Porvider/AuthPorvider.jsx';
-// import LogIn from './components/LogUser/LogIn.js';
 import Register from './components/LogUser/Register.jsx';
 import LogIn from './components/LogUser/Login.jsx';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute.jsx';
+import ChefPrivet from './components/chefAllData/ChefPrivet.jsx';
 
 
 const router = createBrowserRouter([
