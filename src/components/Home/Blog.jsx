@@ -9,8 +9,8 @@ const Blog = () => {
             {/* Question one */}
             <div className="me-4">
                 <ReactToPdf targetRef={componentRef} >
-                    {() => (
-                        <Button>Generate PDF</Button>
+                    {({toPdf}) => (
+                        <Button onClick={toPdf}>Generate PDF</Button>
                     )}
                 </ReactToPdf>
             </div>
