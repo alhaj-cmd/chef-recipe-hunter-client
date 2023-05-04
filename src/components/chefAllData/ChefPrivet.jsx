@@ -90,13 +90,13 @@ const ChefPrivet = () => {
                                     <p>{description.slice(0, 200)}...</p>
                                     <p>Rating: {recipe.rating}</p>
                                 </Card.Text>
-{/* Favorite button */}
-                              
+                                {/* Favorite button */}
+
                                 <Button onClick={toggleShowA} className="mb-2">
                                     Favorite <FaFan></FaFan>
                                 </Button>
 
-                             
+
 
                             </Card.Body>
                         </Card>

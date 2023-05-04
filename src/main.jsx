@@ -12,6 +12,7 @@ import Register from './components/LogUser/Register.jsx';
 import LogIn from './components/LogUser/Login.jsx';
 import PrivetRoute from './components/PrivetRoute/PrivetRoute.jsx';
 import ChefPrivet from './components/chefAllData/ChefPrivet.jsx';
+import Blog from './components/Home/Blog.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         path:"register",
         element:<Register></Register>
       },
+      {
+        path:"/blog",
+        element:<Blog></Blog>
+      }
     ]
   },
 
