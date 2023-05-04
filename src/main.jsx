@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path:':id',
         element:<PrivetRoute><ChefPrivet></ChefPrivet></PrivetRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/allData/${params.id}`),
+        loader:({params})=>fetch(`https://b7a10-chef-recipe-hunter-server.vercel.app/allData/${params.id}`),
         children:[
 
         ]

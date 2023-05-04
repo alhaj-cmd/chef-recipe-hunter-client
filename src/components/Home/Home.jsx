@@ -11,7 +11,7 @@ const Home = () => {
   const [recipe, setRecipe] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allData")
+    fetch("https://b7a10-chef-recipe-hunter-server.vercel.app/allData")
       .then((response) => response.json())
       .then((data) => setRecipe(data))
       .catch(error => console.error(error))
