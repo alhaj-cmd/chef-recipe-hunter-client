@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import { FaArrowRight, FaFan, FaHackerNews } from 'react-icons/fa';
 import { Button, Container, Row } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
 import Toast from 'react-bootstrap/Toast';
 
 const ChefPrivet = () => {
@@ -60,15 +59,15 @@ const ChefPrivet = () => {
                         alt=""
                     />
                     <strong className="me-auto">Hurrah!!!</strong>
-                    <small><FaHackerNews style={{fontSize:"2rem"}}></FaHackerNews></small>
+                    <small><FaHackerNews style={{ fontSize: "2rem" }}></FaHackerNews></small>
                 </Toast.Header>
                 <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
             </Toast>
             <Row xs={1} md={3} lg={3} className="g-4 p-2 h-100 mb-4">
                 {
                     recipes.map(recipe => <div
-                    key={recipe.id}
-                    
+                        key={recipe.id}
+
                     >
 
 
@@ -79,21 +78,25 @@ const ChefPrivet = () => {
                                     <p>{recipe.cooking_method}</p>
                                 </Card.Text>
                                 <Card.Text>
-                                    <p>Ingredients: {recipe.ingredients}</p>
-                                    
+
+                                    {recipe.ingredients.map(ins => <li key={ins.id}>
+                                        {ins}
+                                    </li>)}
+
+
 
                                 </Card.Text>
                                 <Card.Text>
                                     <p>{description.slice(0, 200)}...</p>
                                     <p>Rating: {recipe.rating}</p>
                                 </Card.Text>
-
-                                {/* <Col md={6} className="mb-2"> */}
+{/* Favorite button */}
+                              
                                 <Button onClick={toggleShowA} className="mb-2">
                                     Favorite <FaFan></FaFan>
                                 </Button>
 
-                                {/* </Col> */}
+                             
 
                             </Card.Body>
                         </Card>

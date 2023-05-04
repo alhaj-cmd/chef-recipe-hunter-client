@@ -24,9 +24,9 @@ const Footer = () => {
                     </div>
                     <div className=" col-md-3">
                         <h4 className="mb-4">Contact Us</h4>
-                        <p> 555 4th 5t NW, Washington</p>
+                        <p> 555 4th 5t NW, Gulshan-1</p>
 
-                        <p>DC 20530, United States</p>
+                        <p>DC 1230, Dhaka</p>
                         <p>+88 01750 000 000</p>
 
                         <p>info@gmail</p>

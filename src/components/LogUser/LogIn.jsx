@@ -4,19 +4,32 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Porvider/AuthPorvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/Firebase-config';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle, FaSign, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 
 const LogIn = () => {
   // google signIn
   const  auth =  getAuth(app);
-  const provider = new GoogleAuthProvider();
+  const Googleprovider = new GoogleAuthProvider();
+  const GithubProvider = new GithubAuthProvider();
+
   const handleGoogleSignIn =()=>{
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, Googleprovider)
     .then(res =>{
       const user = res.user;
       console.log(user);
+    })
+    .catch(error =>{
+      console.log('error',error.message)
+    })
+  }
+  const handleGithubSignIn =()=>{
+    signInWithPopup(auth, GithubProvider)
+    .then(result =>{
+      const githubUser = result.user;
+      console.log(githubUser);
+      setUser(githubUser);
     })
     .catch(error =>{
       console.log('error',error.message)
@@ -49,9 +62,9 @@ const LogIn = () => {
     })
 }
     return (
-        <Container className='w-25 mx-auto'>
+        <Container className='w-25 border mt-4'>
         <h2>Please Login!!!</h2>
-         <Form onSubmit={handleSingIn} >
+         <Form onSubmit={handleSingIn}   >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" name='email' placeholder="Enter email" required />
@@ -65,21 +78,18 @@ const LogIn = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        EmailSign
+      <Button  variant="primary" type="submit">
+        Email <FaSignInAlt></FaSignInAlt> 
       </Button>
+      
+      <Button className='m-2' onClick={handleGoogleSignIn}>Login <FaGoogle></FaGoogle></Button>
+      <Button onClick={handleGithubSignIn}>SingIn <FaGithub></FaGithub></Button>
       <br />
       <Form.Text className="text-secondary">
         Don't have an Account ?
          <Link to='/register'>Register</Link>
         </Form.Text>
-      <Form.Text className="text-success">
-          success
-        </Form.Text>
-      <Form.Text className="text-danger">
-          danger
-        </Form.Text>
-    <Button onClick={handleGoogleSignIn}>GoogleSing <FaGoogle></FaGoogle></Button>
+    
     </Form>
        </Container>
     );
