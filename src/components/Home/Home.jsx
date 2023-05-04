@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FaArrowRight } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -27,7 +28,11 @@ const Home = () => {
         <div className='row g-4'>
           <div className='col-md-6 align-items-center'>
             <Card className="bg-dark text-white mb-2  card-style text-center">
-              <Card.Img style={{ height: '40vh' }} src="recipe2.avif" alt="Card image" />
+              {/* lazyload */}
+              <LazyLoad >
+                <Card.Img style={{ height: '40vh' }} src="recipe2.avif" alt="Card image" />
+              </LazyLoad>
+
               <Card.ImgOverlay>
                 <Card.Title>Mongo Pickle</Card.Title>
                 <Card.Text>
@@ -38,7 +43,9 @@ const Home = () => {
 
             </Card>
             <Card className="bg-dark text-white card-style text-center">
-              <Card.Img style={{ height: '40vh' }} src="recipe3.avif" alt="Card image" />
+              <LazyLoad >
+                <Card.Img style={{ height: '40vh' }} src="recipe3.avif" alt="Card image" />
+              </LazyLoad>
               <Card.ImgOverlay>
                 <Card.Title>vegetables</Card.Title>
                 <Card.Text>
@@ -50,7 +57,9 @@ const Home = () => {
           </div>
           <div className='col-md-6'>
             <Card className="bg-dark text-white mb-2 card-style  text-center">
-              <Card.Img style={{ height: '40vh' }} src="recipe5.avif" alt="Card image" />
+              <LazyLoad >
+                <Card.Img style={{ height: '40vh' }} src="recipe5.avif" alt="Card image" />
+              </LazyLoad>
               <Card.ImgOverlay>
                 <Card.Title>vegetables</Card.Title>
                 <Card.Text>
@@ -60,7 +69,9 @@ const Home = () => {
 
             </Card>
             <Card className="bg-dark text-white card-style text-center">
-              <Card.Img style={{ height: '40vh' }} src="recipe1.avif" alt="Card image" />
+              <LazyLoad >
+                <Card.Img style={{ height: '40vh' }} src="recipe1.avif" alt="Card image" />
+              </LazyLoad>
               <Card.ImgOverlay>
                 <Card.Title>Carrot</Card.Title>
                 <Card.Text>
@@ -74,6 +85,15 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
+      {/* 
+      
+      server site load data
+      
+      */}
+
+
       <Row xs={1} md={2} lg={3} className="g-4 mt-4">
         {
           recipe.map(rec =>
@@ -82,7 +102,10 @@ const Home = () => {
 
               <Col>
                 <Card>
-                  <Card.Img style={{ height: '40vh' }} variant="top" src={rec.chef_picture} />
+                  <LazyLoad >
+                    <Card.Img style={{ height: '40vh' }} variant="top" src={rec.chef_picture} />
+                  </LazyLoad>
+
                   <Card.Body>
                     <Card.Text className='d-flex justify-content-between'>
                       <h3> {rec.chef_name}</h3>
@@ -105,7 +128,16 @@ const Home = () => {
           )
         }
       </Row>
-      {/* Overvied section */}
+
+
+      {/* 
+      
+      Overvied section 
+      
+      
+      */}
+
+
       <div className='container row g-4'>
         <h1 className='text-center'>Invitation</h1>
         <div className='col-md-6 '>
@@ -117,7 +149,9 @@ const Home = () => {
 
         </div>
         <div className='col-md-6'>
+          <LazyLoad>
           <img src="recipe4.avif" alt="" />
+          </LazyLoad>
         </div>
       </div>
 

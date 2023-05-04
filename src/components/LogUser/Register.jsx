@@ -25,6 +25,7 @@ const Register = () => {
       .then(result => {
         const loggedUser = result.user;
         updateUserInfo(loggedUser, name, photo)
+        console.log(loggedUser);
       })
       .catch(error => {
         console.error(error.message);

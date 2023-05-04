@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import { FaArrowRight, FaFan, FaHackerNews } from 'react-icons/fa';
+import { FaArrowRight, FaFan, FaHackerNews, FaStar } from 'react-icons/fa';
 import { Button, Container, Row } from 'react-bootstrap';
 import Toast from 'react-bootstrap/Toast';
+import LazyLoad from 'react-lazy-load';
 
 const ChefPrivet = () => {
 
@@ -19,10 +20,15 @@ const ChefPrivet = () => {
         <>
 
             <Container className='mt-4' >
-                <Row xs={1} md={1} lg={1} className="g-4 mb-4">
+                {/* <Row xs={1} md={1} lg={1} className="g-4 mb-4"> */}
                     <Col>
-                        <Card>
-                            <Card.Img variant="top" src={chef_picture} />
+                        <Card className='h-50 m-auto w-50'>
+                            {/* lazyload */}
+                            <LazyLoad>
+
+                            <Card.Img  variant="top" src={chef_picture} />
+
+                            </LazyLoad>
                             <Card.Body>
                                 <Card.Text className='d-flex justify-content-between'>
                                     <h3> {chef_name}</h3>
@@ -41,7 +47,7 @@ const ChefPrivet = () => {
                         </Card>
                     </Col>
 
-                </Row>
+                {/* </Row> */}
 
             </Container>
 
@@ -88,7 +94,7 @@ const ChefPrivet = () => {
                                 </Card.Text>
                                 <Card.Text>
                                     <p>{description.slice(0, 200)}...</p>
-                                    <p>Rating: {recipe.rating}</p>
+                                    <p><FaStar></FaStar> {recipe.rating}</p>
                                 </Card.Text>
                                 {/* Favorite button */}
 

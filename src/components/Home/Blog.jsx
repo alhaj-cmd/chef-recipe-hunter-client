@@ -1,11 +1,21 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { Button, Container } from 'react-bootstrap';
+import ReactToPdf from 'react-to-pdf';
 
 const Blog = () => {
+    const componentRef = useRef();
     return (
-        <Container className='mt-4'>
+        <Container ref={componentRef} className='mt-4'>
             {/* Question one */}
+            <div className="me-4">
+                <ReactToPdf targetRef={componentRef} >
+                    {() => (
+                        <Button>Generate PDF</Button>
+                    )}
+                </ReactToPdf>
+            </div>
             <section>
+
                 <h2>Tell us the differences between uncontrolled and controlled components?</h2>
                 <p>Controlled components are components that are fully controlled by the parent component. This means that the parent component manages the state of the child component, and the child component receives its values and updates through props. In other words, the child component doesn't have its own state - it relies entirely on the parent component for its state. Controlled components are useful in situations where you want to have more fine-grained control over the behavior of a component, or when you need to synchronize the state of multiple components. </p>
                 <p>Uncontrolled components, on the other hand, manage their own state internally. They are responsible for handling their own updates, and the parent component does not have direct control over their behavior. Instead, the parent component can read the current state of the child component using refs. Uncontrolled components are useful when you want a component to be self-contained and independent, or when you don't need fine-grained control over its behavior.</p>
@@ -27,7 +37,9 @@ const Blog = () => {
             <section>
                 <h2>What is a custom hook, and why will you create a custom hook?</h2>
                 <p>a custom hook is a JavaScript function that uses built-in React hooks and/or other custom hooks to provide a reusable piece of stateful logic. Custom hooks allow you to abstract and reuse complex stateful logic between components in your React application.Custom hooks can be used to encapsulate common patterns, such as fetching data from an API, managing form state, or handling local storage. By extracting these patterns into a custom hook, you can reduce code duplication and improve the overall organization and maintainability of your codebase.</p>
+                {/* <button onClick={() => {pdfExport.current.save()}}>Export to PDF</button> */}
             </section>
+
 
         </Container>
     );
