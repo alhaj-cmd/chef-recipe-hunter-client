@@ -7,3 +7,8 @@ HEALTHY FOOD website.
 
 ## Live Link
 ### https://grand-torte-6328c4.netlify.app/
+
+## To use the react-to-pdf library in a React project.
+
+#react-lazy-load
+####In React, lazy is a function that allows you to load components lazily (i.e., only when they are needed). This can improve the performance of your application by reducing the initial download size and deferring the loading of less frequently used components until they are actually needed.
