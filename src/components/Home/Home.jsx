@@ -27,29 +27,29 @@ const Home = () => {
         <h1 className='text-center'>Chef's Recipes</h1>
         <div className='row g-4'>
           <div className='col-md-6 align-items-center'>
-            <Card className="bg-dark text-white mb-2  card-style text-center">
+            <Card className=" mb-2  card-style text-center">
               {/* lazyload */}
               <LazyLoad >
-                <Card.Img style={{ height: '40vh' }} src="recipe2.avif" alt="Card image" />
+                <Card.Img style={{ height: '40vh' }} src="food1.avif" alt="Card image" />
               </LazyLoad>
 
               <Card.ImgOverlay>
-                <Card.Title>Mongo Pickle</Card.Title>
+                <Card.Title>Chicken Fry</Card.Title>
                 <Card.Text>
-                  Pickle made from green Mango
+                Chicken, mix, gram flour, mustard oil, vinegar
                 </Card.Text>
 
               </Card.ImgOverlay>
 
             </Card>
-            <Card className="bg-dark text-white card-style text-center">
+            <Card className="bg-dark card-style text-white text-center">
               <LazyLoad >
-                <Card.Img style={{ height: '40vh' }} src="recipe3.avif" alt="Card image" />
+                <Card.Img style={{ height: '40vh' }} src="food2.avif" alt="Card image" />
               </LazyLoad>
               <Card.ImgOverlay>
-                <Card.Title>vegetables</Card.Title>
+                <Card.Title>Chicken Recipe</Card.Title>
                 <Card.Text>
-                  Different green or other vegetables
+                Chicken, mix, gram flour, mustard oil, vinegar
                 </Card.Text>
               </Card.ImgOverlay>
 

@@ -8,7 +8,7 @@ const Blog = () => {
         <Container ref={componentRef} className='mt-4'>
             {/* Question one */}
             <div className="me-4">
-                <ReactToPdf targetRef={componentRef} >
+                <ReactToPdf targetRef={componentRef}>
                     {({toPdf}) => (
                         <Button onClick={toPdf}>Generate PDF</Button>
                     )}

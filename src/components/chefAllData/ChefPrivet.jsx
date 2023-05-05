@@ -7,11 +7,18 @@ import { Button, Container, Row } from 'react-bootstrap';
 import Toast from 'react-bootstrap/Toast';
 import LazyLoad from 'react-lazy-load';
 
-const ChefPrivet = () => {
+const ChefPrivet = ({ favorite}) => {
+   
+        const [isFavorite, setIsFavorite] = useState(favorite);
+        const [showToast, setShowToast] = useState(false);
+      
+    
+        const handleClickFavorite = () => {
+            setIsFavorite(true);
+            setShowToast(true);
+    
+        };
 
-    const [showA, setShowA] = useState(false);
-
-    const toggleShowA = () => setShowA(!showA);
 
     const allData = useLoaderData();
     // console.log(allData)
@@ -20,7 +27,6 @@ const ChefPrivet = () => {
         <>
 
             <Container className='mt-4' >
-                {/* <Row xs={1} md={1} lg={1} className="g-4 mb-4"> */}
                     <Col>
                         <Card className='h-50 m-auto w-50'>
                             {/* lazyload */}
@@ -56,26 +62,23 @@ const ChefPrivet = () => {
             <h3 className='text-center mt-4 mb-4'>About a section displaying the information of the selected chef's recipes in a Card group</h3>
 
             {/* toast added */}
-
-            <Toast show={showA} onClose={toggleShowA}>
-                <Toast.Header>
-                    <img
-                        src="holder.js/20x20?text=%20"
-                        className="rounded me-2"
-                        alt=""
-                    />
-                    <strong className="me-auto">Hurrah!!!</strong>
+            <Toast
+                show={showToast}
+                onClose={() => setShowToast(false)}
+            >
+                 <Toast.Header>
+                 <strong className="me-auto">Hurrah!!!</strong>
                     <small><FaHackerNews style={{ fontSize: "2rem" }}></FaHackerNews></small>
                 </Toast.Header>
                 <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
             </Toast>
+
             <Row xs={1} md={3} lg={3} className="g-4 p-2 h-100 mb-4">
                 {
                     recipes.map(recipe => <div
                         key={recipe.id}
 
                     >
-
 
                         <Card className='h-100'>
                             <Card.Body>
@@ -89,8 +92,6 @@ const ChefPrivet = () => {
                                         {ins}
                                     </li>)}
 
-
-
                                 </Card.Text>
                                 <Card.Text>
                                     <p>{description.slice(0, 200)}...</p>
@@ -98,11 +99,13 @@ const ChefPrivet = () => {
                                 </Card.Text>
                                 {/* Favorite button */}
 
-                                <Button onClick={toggleShowA} className="mb-2">
-                                    Favorite <FaFan></FaFan>
+                                <Button
+                                    
+                                    disabled={isFavorite}
+                                    onClick={handleClickFavorite}
+                                >
+                                    {isFavorite ? "Favorite" : "Favorite"}
                                 </Button>
-
-
 
                             </Card.Body>
                         </Card>

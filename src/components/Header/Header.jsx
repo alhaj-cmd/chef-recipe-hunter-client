@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Navbar, Container, Nav, Button, NavLink } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import './Header.css';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Porvider/AuthPorvider';
-import { FaUserCircle } from 'react-icons/fa';
+
 
 const Header = () => {
   const location = useLocation();
@@ -21,18 +21,18 @@ const Header = () => {
 
   return (
 
-    <div className='header ' >
+    <div className='header text-dark ' >
 
-      <Navbar variant="info" expand="lg">
+      <Navbar variant="primary" expand="lg">
         <Container>
           <Navbar.Brand href="#home"><img src="logo.png" alt="" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className='me-auto gap-4'>
-              <Link to='/' className={`text-decoration-none ${getNavLinkClass('/')}`}>
+              <Link to='/' className={`text-decoration-none text-white ${getNavLinkClass('/')}`}>
                 Home
               </Link>
-              <Link to='/blog' className={`text-decoration-none ${getNavLinkClass('/blog')}`}>
+              <Link to='/blog' className={`text-decoration-none text-white ${getNavLinkClass('/blog')}`}>
                 Blog
               </Link>
             </Nav>
@@ -54,7 +54,7 @@ const Header = () => {
               <h3>The Perfect Choice</h3>
               <h1>HEALTHY FOOD</h1>
               <p>Fresh, organic ingradregient. Carefully prepared</p>
-              <Link to='/'><Button>BOOK A TABLE</Button></Link>
+              <Link><Button>BOOK A TABLE</Button></Link>
 
             </div>
           </div>
